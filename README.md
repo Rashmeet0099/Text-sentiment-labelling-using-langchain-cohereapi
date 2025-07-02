@@ -21,3 +21,28 @@
 ## Run Example
 ```bash
 python main.py
+
+       +-----------------+
+       |    app.py       |  <- Streamlit frontend
+       +-----------------+
+               |
+               v
+       +-----------------+
+       |   utils.py      |  <- classify_text() function
+       +-----------------+
+               |
+               v
+       +------------------------+
+       |  classifier_chain.py   |  <- LLM Chain definition
+       +------------------------+
+         |          |         |
+         v          v         v
+  .env (API)  prompt_templates.py  ChatCohere (LangChain)
+     |               |                 |
+     +---------------+-----------------+
+                     |
+                     v
+            +------------------+
+            | JSON classification |
+            +------------------+
+
